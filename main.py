@@ -1,5 +1,5 @@
 import ipinfo
-from parser import Parser
+from simpleParser import Parser
 
 """
 access_token = "292aba28c3f144"
@@ -13,4 +13,4 @@ print(details.all)
 """
 
 p = Parser("rawData.txt")
-p.printData()
+p.parseData()
