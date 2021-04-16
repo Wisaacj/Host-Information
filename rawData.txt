@@ -379,11 +379,16 @@ traceroute to www.bbc.in (67.199.248.13), 30 hops max, 60 byte packets
 8 ae29.londtn−sbr1.ja.net (146.97.33.10) 4.743 ms 19.868 ms 4.703 ms
 9 ae0.londtn−ban3.ja.net (146.97.35.170) 5.024 ms 4.958 ms 4.927 ms
 10 akamai.prolexic.com (195.66.224.31) 6.308 ms 6.677 ms 6.652 ms
-11 unknown.prolexic.com (72.52.60.200) 5.790 ms unknown.prolexic.com (72.52.60.192) 5.864 ms unknown.prolexic.com (72.52.60.200) 5.759 ms
+11 unknown.prolexic.com (72.52.60.200) 5.790 ms unknown.prolexic.com 
+(72.52.60.192) 5.864 ms unknown.prolexic.com 
+(72.52.60.200) 5.759 ms
 12 unknown.prolexic.com (72.52.60.197) 9.001 ms 9.151 ms 8.604 ms
 13 * * *
-14 unknown.prolexic.com (209.200.160.218) 79.370 ms unknown.prolexic.com (209.200.170.172) 79.108 ms 83.537 ms
-15 ae6.cbs01.eq01.wdc02.networklayer.com (50.97.17.146) 85.606 ms 81.399 ms ae5.cbs02.eq01.wdc02.networklayer.com (50.97.17.148) 85.709 ms
+14 unknown.prolexic.com (209.200.160.218) 79.370 ms unknown.prolexic.com 
+(209.200.170.172) 79.108 ms 83.537 ms
+15 ae6.cbs01.eq01.wdc02.networklayer.com (50.97.17.146) 85.606 ms 81.399 ms ae5.cbs02.eq01.wdc02.networklayer.com 
+(50.97.17.148) 85.709 ms
 16 e9.11.6132.ip4.static.sl−reverse.com (50.97.17.233) 79.392 ms 83.675 ms 83.845 ms
-17 87.76.37a9.ip4.static.sl−reverse.com (169.55.118.135) 79.789 ms 79.875 ms 89.76.37a9.ip4.static.sl−reverse.com (169.55.118.137) 79.884 ms
+17 87.76.37a9.ip4.static.sl−reverse.com (169.55.118.135) 79.789 ms 79.875 ms 89.76.37a9.ip4.static.sl−reverse.com 
+(169.55.118.137) 79.884 ms
 18 67.199.248.13 (67.199.248.13) 80.969 ms 81.004 ms 81.198 ms

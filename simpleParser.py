@@ -1,6 +1,6 @@
 import re
 
-# Class to parse the data from the text file
+# Class to parse the IPs from the text file
 class Parser():
 
     def __init__(self, filename):
@@ -21,29 +21,36 @@ class Parser():
         for line in self.fileContents:
             print(line)
 
-    def parseData(self):
+    def parseData(self, debugging=False):
         no_routes = 0
 
         for count, line in enumerate(self.fileContents):
             if ("traceroute" in line):
-                self.parsedData["{}".format(no_routes)] = self.parseBlock(count+1)
+                self.parsedData["{}".format(no_routes)] = self.parseBlock(count+1, debugging)
                 no_routes += 1
 
-    def parseBlock(self, startIndex):
+        return self.parsedData
+
+    def parseBlock(self, startIndex, debugging=False):
         block_data = []
 
         for line in self.fileContents[startIndex:]:
             if ("traceroute" in line):
-                print("Looking for next traceroute")
+                if (debugging):
+                    print("Looking for next traceroute")
                 break
 
             try:
                 ips = self.pattern.search(line)[0]
+
+                if (ips != None):
+                    block_data.append(ips)
+
             except:
                 pass
 
-            if (ips != None):
-                block_data.append(ips)
+        # Print the block's data if debugging mode is enabled
+        if (debugging):
+            print(block_data)
 
-        print(block_data)
         return block_data
