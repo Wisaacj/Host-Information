@@ -19,8 +19,20 @@ class IPDetails():
     def getHostInfo(self, debugging=False):
         for block in self.parsedData.keys():
             for ip in self.parsedData[block]:
+
                 if (debugging):
                     print((self.handler.getDetails(ip)).details)
-                self.host_data[block]["{}".format(ip)] = (self.handler.getDetails(ip)).details
+
+                currDetails = (self.handler.getDetails(ip)).details
+
+                # Checking to see if the ip details request failed
+                if (currDetails["ip"] == "172.16.0.1"):
+                    self.host_data[block]["{}".format(ip)] = currDetails
+                    self.host_data[block]["{}".format(ip)]["city"] = "Bath"
+                    self.host_data[block]["{}".format(ip)]["region"] = "England"
+                    self.host_data[block]["{}".format(ip)]["country_name"] = "United Kingdom"
+                    self.host_data[block]["{}".format(ip)]["org"] = "University of Bath Intranet"
+                else:
+                    self.host_data[block]["{}".format(ip)] = currDetails
 
         return self.host_data
