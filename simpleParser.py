@@ -9,6 +9,8 @@ class Parser():
         self.fileContents = self.openFile()
         # Dictionary to hold the parsed data
         self.parsedData = {}
+        # Dictionary to hold the average route time for each traceroute
+        self.avgRouteTimes = {}
         # Setting the pattern for finding IP addresses
         self.pattern =  re.compile(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})')
 
@@ -26,13 +28,14 @@ class Parser():
 
         for count, line in enumerate(self.fileContents):
             if ("traceroute" in line):
-                self.parsedData["{}".format(no_routes)] = self.parseBlock(count+1, debugging)
+                self.parsedData["{}".format(no_routes)], self.avgRouteTimes["{}".format(no_routes)] = self.parseBlock(count+1, debugging)
                 no_routes += 1
 
-        return self.parsedData
+        return self.parsedData, self.avgRouteTimes
 
     def parseBlock(self, startIndex, debugging=False):
         block_data = []
+        block_route_time = 0
 
         for line in self.fileContents[startIndex:]:
             if ("traceroute" in line):
@@ -46,6 +49,19 @@ class Parser():
                 if (ips != None):
                     block_data.append(ips)
 
+                splittedLine = line.split(" ")
+
+                avg_time = 0
+                timeCount = 0
+
+                for i, split in enumerate(splittedLine):
+                    if (split == "ms" or split == "ms\n"):
+                        avg_time += float(splittedLine[i-1])
+                        timeCount += 1
+
+                avg_time /= timeCount
+                block_route_time += avg_time
+
             except:
                 pass
 
@@ -53,4 +69,4 @@ class Parser():
         if (debugging):
             print(block_data)
 
-        return block_data
+        return block_data, block_route_time

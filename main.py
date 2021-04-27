@@ -6,7 +6,10 @@ import json
 if __name__ == "__main__":
     # Parsing the data from the text file for IP addresses
     p = Parser("data/rawData.txt")
-    parsedData = p.parseData()
+    parsedData, avgRouteTimes = p.parseData()
+    # Printing the average routes time
+    print(avgRouteTimes)
+    """
     # Getting the information about the hosts
     ip = IPDetails(parsedData)
     host_data = ip.getHostInfo()
@@ -21,3 +24,4 @@ if __name__ == "__main__":
     # Exporting the host_data_json to a .json file
     with open("data/data.json", "w") as outfile:
         outfile.write(host_data_json)
+    """
