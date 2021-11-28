@@ -1,5 +1,7 @@
 # Host-Information
-Python application to find information about each of the hosts on a tracert request.
+
+Gathering host information (location and networks) for a given set of IP Addresses
+_Uses tracert_
 
 ---
 
