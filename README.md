@@ -1,7 +1,7 @@
 # Host-Information
 
 Gathering host information (location and networks) for a given set of IP Addresses
-_Uses tracert_
+(_Using tracert_)
 
 ---
 
